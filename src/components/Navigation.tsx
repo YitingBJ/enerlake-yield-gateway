@@ -14,16 +14,16 @@ const Navigation = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary backdrop-blur-sm border-b border-primary-foreground/10">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
-              src={enerlakeLogo} 
-              alt="Enerlake" 
-              className="h-10 w-auto"
-            />
+              <img 
+                src={enerlakeLogo} 
+                alt="Enerlake" 
+                className="h-10 w-auto filter invert"
+              />
           </div>
 
           {/* Desktop Navigation */}
@@ -32,7 +32,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-accent-strong transition-smooth font-medium"
+                className="text-primary-foreground hover:text-primary-foreground/80 transition-smooth font-medium"
               >
                 {item.name}
               </a>
@@ -41,17 +41,17 @@ const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="font-medium">
+            <Button variant="ghost" className="font-medium text-primary-foreground hover:bg-primary-foreground/10">
               List Your Asset
             </Button>
-            <Button variant="default" className="shadow-lift">
+            <Button variant="secondary" className="shadow-lift font-medium">
               Join Waitlist
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-smooth"
+            className="md:hidden p-2 rounded-lg hover:bg-primary-foreground/10 transition-smooth text-primary-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -60,23 +60,23 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-border bg-background">
+          <div className="md:hidden py-6 border-t border-primary-foreground/10 bg-primary">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground hover:text-accent-strong transition-smooth font-medium py-2"
+                  className="text-primary-foreground hover:text-primary-foreground/80 transition-smooth font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
               <div className="flex flex-col space-y-3 pt-4">
-                <Button variant="ghost" className="justify-start">
+                <Button variant="ghost" className="justify-start text-primary-foreground hover:bg-primary-foreground/10">
                   List Your Asset
                 </Button>
-                <Button variant="default" className="justify-start">
+                <Button variant="secondary" className="justify-start">
                   Join Waitlist
                 </Button>
               </div>
